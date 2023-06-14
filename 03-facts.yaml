@@ -1,7 +1,8 @@
 # Demo on facts 
 
 - name: Demo on using facts
-  hosts: all 
+  hosts: all
+  gather_facts: false
   tasks:
     - name: Printing the fact
       ansible.builtin.debug:

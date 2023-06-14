@@ -1,4 +1,4 @@
-- name: Demo on using shell module 
+- name: Demo on using register
   hosts: all 
   tasks:
     - name: Demo on using shell module 

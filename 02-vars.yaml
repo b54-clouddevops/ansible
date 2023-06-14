@@ -15,7 +15,7 @@
 
     - name: Demo to show Quotes 
       ansible.builtin.debug:
-        msg: {{ URL }}
+        msg: "{{ URL }}"
 
     - name: Printing value of the variable which is not declared
       ansible.builtin.debug:

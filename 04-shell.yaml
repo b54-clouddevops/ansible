@@ -2,4 +2,9 @@
   hosts: all 
   tasks:
     - name: Demo on using shell module 
-      ansible.builtin.shell: uptime
+      ansible.builtin.shell: uptime 
+      register: OUT
+    
+    - name: Printing the OUT variable
+      ansible.builtin.debug:  
+        msg: "{{OUT}}"

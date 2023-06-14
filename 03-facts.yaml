@@ -2,11 +2,12 @@
 
 - name: Demo on using facts
   hosts: all
-  gather_facts: false
+  # gather_facts: false            using this you can control on gathering the facts.
   tasks:
     - name: Printing the fact
       ansible.builtin.debug:
         msg: ansible_distribution is {{ ansible_distribution }}
+        
     - name: Printing the macAddress of the machine
       ansible.builtin.debug:
         msg: macAddress is {{ ansible_default_ipv4.macaddress }}

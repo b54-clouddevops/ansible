@@ -7,6 +7,7 @@
   vars_prompt:
     - name: URLNAME 
       prompt: Enter the URLNAME
+      private: no
   tasks:
     - name: Printing value of the variable
       ansible.builtin.debug:

@@ -1,0 +1,11 @@
+- name: Demo on using variables on playbooks  
+  hosts: all 
+  vars: 
+    URL: play.google.com
+  tasks:
+    - name: Printing value of the variable
+      ansible.builtin.debug:
+        msg: Value of URL is {{ URL }}
+
+
+

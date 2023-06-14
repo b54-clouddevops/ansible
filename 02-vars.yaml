@@ -13,6 +13,12 @@
       vars:                              # Local Variables 
         URL: task.google.com
 
+    - name: Printing value of the variable which is not declared
+      ansible.builtin.debug:
+        msg: Name Of the car is {{ CARNAME }}
+
+# local variables > Global Variables 
+
 # If you try to print a variable that is not declared, it will throw an error.
 
     # - name: Printing value of the variable which is not declared

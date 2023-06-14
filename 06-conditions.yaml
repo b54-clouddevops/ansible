@@ -19,6 +19,7 @@
       when: action
 
     - name: I will run only when the value bar is not declared
-      ansible.builtin.msg: BAR IS NOT DELCARED
+      ansible.builtin.debug: 
+        msg: BAR IS NOT DELCARED
       when: bar is undefined
       

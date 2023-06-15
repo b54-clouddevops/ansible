@@ -196,6 +196,30 @@ roles/
 
 ``` 
 
+### Roles Etiquitee :
+
+```
+By default Ansible will look in each directory within a role for a main.yml file for relevant content (also main.yaml and main):
+
+    tasks/main.yml - the main list of tasks that the role executes.
+
+    handlers/main.yml - handlers, which may be used within or outside this role.
+
+    library/my_module.py - modules, which may be used within this role (see Embedding modules and plugins in roles for more information).
+
+    defaults/main.yml - default variables for the role (see Using Variables for more information). These variables have the lowest priority of any variables available, and can be easily overridden by any other variable, including inventory variables.
+
+    vars/main.yml - other variables for the role (see Using Variables for more information).
+
+    files/main.yml - files that the role deploys.
+
+    templates/main.yml - templates that the role deploys.
+
+    meta/main.yml - metadata for the role, including role dependencies and optional Galaxy metadata such as platforms supported.
+
+```
+
+
 ```
 Ref :  https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_reuse_roles.html
 ```

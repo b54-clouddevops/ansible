@@ -142,3 +142,24 @@ tabitha:
       - fortran
       - erlang
 ``` 
+
+
+
+### Ansible Roles :
+
+```
+Ansible roles are a way to organize your Ansible code. They are a collection of files that contain tasks, variables, and other resources that can be used to perform a specific task
+```
+
+### Here are some of the benefits of using Ansible roles:
+
+```
+* Organization:  Roles can help you organize your Ansible code into logical units. This makes your code easier to understand, maintain, and reuse.
+
+* Reusability: Roles can be reused across multiple projects. This can save you time and effort when you need to perform the same task on multiple systems.
+
+* Modularity: Roles can be broken down into smaller, more manageable tasks. This makes your code easier to test and debug.
+
+* Documentation: Roles can be used to document your Ansible code. This can help you and other developers understand how your systems are configured and how to manage them.
+
+```

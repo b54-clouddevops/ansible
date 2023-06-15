@@ -85,6 +85,17 @@ How do I know, what all are the facts that are collected by ANSIBLE ?
     $ ansible -i inventory all -m setup 
 
 ```
+
+### Ansible-Vault : 
+
+This is used encrypt any sort of senstitive content on your playbook 
+
+```
+    $ ansible-vault encrypt_string pswrd1432    ( enter the password to give you the encrypted string and supply the password when you run the playook )
+
+    $ ansible-playbook -i inv -e ansible_user=centos -e ansible_password=xyz123 13-vault.yaml --ask-vault-password
+```
+
 ### Ansible-Pull 
 
 ```

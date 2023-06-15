@@ -1,4 +1,4 @@
 - name: Playbook to configure roboshop project 
-  hosts: {{ COMPONENT }} 
+  hosts: "{{ COMPONENT }}"
   roles:
-    - {{ COMPONENT }}
+    - "{{ COMPONENT }}"

@@ -4,23 +4,29 @@
     - name: This is a frontend task
       ansible.builtin.debug:
         msg: Installing frontend
+      tags: frontend
 
     - name: Starting frontend
       ansible.builtin.debug:
         msg: Starting frontend
+      tags: frontend
 
     - name: This is a user task
       ansible.builtin.debug:
         msg: Installing user
+      tags: user
         
     - name: Starting user
       ansible.builtin.debug:
         msg: Starting user 
+      tags: user
 
     - name: This is a cart task
       ansible.builtin.debug:
         msg: Installing cart
+      tags: cart
         
     - name: Starting cart
       ansible.builtin.debug:
         msg: Starting cart
+      tags: cart

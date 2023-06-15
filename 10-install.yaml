@@ -1,5 +1,6 @@
 - name: Demo on using loops  
-  hosts: all 
+  hosts: all
+  become: yes
   tasks:
     - name: Installing nginx
       ansible.builtin.package:

@@ -1,0 +1,7 @@
+- name: Demo on using loops  
+  hosts: all 
+  tasks:
+    - name: Installing nginx
+      ansible.builtin.package:
+        name: nginx
+        state: present

@@ -20,11 +20,10 @@
     state: started
     enabled: true 
 
-- name: Download and extracting the MongoDB Schema
-  ansible.builtin.unarchive:
-    src: https://github.com/stans-robot-project/{{COMPONENT}}/archive/main.zip
-    dest: /tmp
-    remote_src: yes 
+- name: Download and extract Mongodb Schema
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: download
 
 - name: Injecting the MongoDB Schema
   community.mongodb.mongodb_shell:
@@ -33,8 +32,3 @@
   loop: 
     - catalogue 
     - users
-
-# - name: Injecting the MongoDB Users Schema
-#   community.mongodb.mongodb_shell:
-#     file: "/tmp/{{COMPONENT}}-main/users.js"
-#     idempotent: yes

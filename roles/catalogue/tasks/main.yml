@@ -9,15 +9,16 @@
 - name: Creating App User 
   ansible.builtin.user:
     name: "{{APPUSER}}" 
-    comment: Roboshop Application User 
+    comment: Roboshop Application User
 
 - name: Download and extracting {{ COMPONENT }}
   ansible.builtin.include_role:
     name: common
-    tasks_from: download 
+    tasks_from: download
 
-
-
+- name: Genearting Artifacts with npm install
+  community.general.npm:
+    path: /home/{{APPUSER}}/{{COMPONENT}}/
       
 
 # - name: Configuring MongoDB Repository

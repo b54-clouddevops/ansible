@@ -3,8 +3,27 @@
     name: nginx
     state: present 
 
+- name: Download and extracting the component
+  ansible.builtin.unarchive:
+    src: https://github.com/stans-robot-project/frontend/archive/main.zip
+    dest: /tmp
+    remote_src: yes
+
+- name: Cleanup of Old HTML Content
+  ansible.builtin.file:
+    path: /usr/share/nginx/html/
+    state: absent
+
+- name: Copy the frontend component which is downloaded on the remote machines nginx path 
+  ansible.builtin.copy:
+    src: /tmp/frontend-main/static/
+    dest: /usr/share/nginx/html/
+    remote_src: yes
+# If the source you're trying to copy is on the remote machine, ensure you give the remote_src as yes
+
 - name: Starting nginx 
   ansible.builtin.systemd:
     name: nginx 
     state: started
     enabled: true
+

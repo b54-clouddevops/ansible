@@ -6,4 +6,16 @@
 - name: Installing MongoDB 
   ansible.builtin.package:
     name: mongodb-org
-    state: present 
+    state: present  
+
+- name: Updating the MongoDB Config to be public
+  ansible.builtin.replace:
+    path: /etc/mongod.conf
+    regexp: '127.0.0.1'
+    replace: '0.0.0.0' 
+
+- name: Starting MongoDB 
+  ansible.builtin.systemd:
+    name: mongod 
+    state: started
+    enabled: true

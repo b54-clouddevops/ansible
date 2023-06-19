@@ -28,7 +28,7 @@
 
 - name: Restarting {{COMPONENT}} 
   ansible.builtin.systemd:
-    name: catalogue 
+    name: "{{COMPONENT}}"  
     state: restarted
     enabled: true
     daemon_reload: true

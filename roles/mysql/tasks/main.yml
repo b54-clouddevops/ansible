@@ -14,6 +14,9 @@
     state: started
     enabled: true 
 
+- name: Configuring Node Name Repo 
+  ansible.builtin.shell: set-hostname {{COMPONENT}}-{{ENV}}
+
 # - name: Download and extract Mongodb Schema
 #   ansible.builtin.include_role:
 #     name: common

@@ -26,37 +26,9 @@
     dest: /etc/systemd/system/{{COMPONENT}}.service
       
 
-# - name: Configuring MongoDB Repository
-#   ansible.builtin.copy:
-#     src: mongodb.repo
-#     dest: /etc/yum.repos.d/mongodb.repo 
-
-# - name: Installing MongoDB 
-#   ansible.builtin.package:
-#     name: mongodb-org
-#     state: present  
-
-# - name: Updating the MongoDB Config to be public
-#   ansible.builtin.replace:
-#     path: /etc/mongod.conf
-#     regexp: '127.0.0.1'
-#     replace: '0.0.0.0' 
-
-# - name: Starting MongoDB 
-#   ansible.builtin.systemd:
-#     name: mongod 
-#     state: started
-#     enabled: true 
-
-# - name: Download and extract Mongodb Schema
-#   ansible.builtin.include_role:
-#     name: common
-#     tasks_from: download
-
-# - name: Injecting the MongoDB Schema
-#   community.mongodb.mongodb_shell:
-#     file: "/tmp/{{COMPONENT}}-main/{{ item }}.js"
-#     idempotent: yes 
-#   loop: 
-#     - catalogue 
-#     - users
+- name: Restarting catalogue 
+  ansible.builtin.systemd:
+    name: catalogue 
+    state: restarted
+    enabled: true
+    daemon_reload: true

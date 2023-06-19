@@ -21,7 +21,7 @@
 
 - name: Grep the password and assign it to a variable
   ansible.builtin.set_fact:
-      DEFAULT_PASSWORD: "{{ mysql_pwd_log['content'] | b64decode | regex_findall('.*temporary password.*')| join(' ') |split(' ') }}"
+      DEFAULT_PASSWORD: "{{ mysql_pwd_log['content'] | b64decode | regex_findall('.*temporary password.*')| join(' ') |split(' ') | last }}"
 
 - name: Reset {{COMPONENT}} Default root password
   ansible.builtin.shell:  echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p"{{DEFAULT_PASSWORD}}"

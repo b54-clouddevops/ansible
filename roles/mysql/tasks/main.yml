@@ -1,0 +1,28 @@
+- name: Configuring {{COMPONENT}} Repository
+  ansible.builtin.copy:
+    src: mysql.repo
+    dest: /etc/yum.repos.d/mongodb.repo 
+
+- name: Installing {{COMPONENT}} 
+  ansible.builtin.package:
+    name: mysql-community-server
+    state: present
+
+- name: Starting {{COMPONENT}} 
+  ansible.builtin.systemd:
+    name: mysql-community-server 
+    state: started
+    enabled: true 
+
+# - name: Download and extract Mongodb Schema
+#   ansible.builtin.include_role:
+#     name: common
+#     tasks_from: download
+
+# - name: Injecting the MongoDB Schema
+#   community.mongodb.mongodb_shell:
+#     file: "/tmp/{{COMPONENT}}-main/{{ item }}.js"
+#     idempotent: yes 
+#   loop: 
+#     - catalogue 
+#     - users

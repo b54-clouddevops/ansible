@@ -14,6 +14,19 @@
     state: started
     enabled: true 
 
+- name: Fetch the log file from the rmote note
+  ansible.builtin.slurp:
+    src: /var/log/mysqld.log
+  register: mysql_pwd_log
+
+- name: Grep the password and assign it to a variable
+  ansible.builtin.set_fact:
+      DEFAULT_PASSWORD: "{{ mysql_pwd_log['content'] | b64decode | regex_findall('.*temporary password.*') }}"
+
+- name: Printing the password 
+  ansible.builtin.debug: 
+      msg: "Printing the pwd {{DEFAULT_PASSWORD}}"
+
 - name: Configuring Node Name Repo 
   ansible.builtin.shell: set-hostname {{COMPONENT}}-{{ENV}}
 

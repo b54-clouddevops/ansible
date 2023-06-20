@@ -1,0 +1,26 @@
+- name: Installing ERLANG Package
+  ansible.builtin.shell: curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | sudo bash
+
+- name: Configuring {{COMPONENT}} repo 
+  ansible.builtin.shell: curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | sudo bash  
+
+- name: Installing {{COMPONENT}} 
+  ansible.builtin.package:
+    name: rabbitmq-server
+    state: present  
+
+- name: Starting {{COMPONENT}}  
+  ansible.builtin.systemd:
+    name: rabbitmq-server 
+    state: started
+    enabled: true 
+
+- name: Creating {{COMPONENT}} App User
+  community.rabbitmq.rabbitmq_user:
+    user: roboshop
+    password: roboshop123
+    vhost: /
+    configure_priv: .*
+    read_priv: .*
+    write_priv: .*
+    state: present

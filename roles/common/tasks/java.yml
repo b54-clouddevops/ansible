@@ -1,0 +1,19 @@
+- name: Installing Maven on {{COMPONENT}}-{{ENV}} server 
+  ansible.builtin.package:
+    name: maven 
+    state: present  
+
+- name: Creating App User 
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: create_user
+
+- name: Download and extracting {{ COMPONENT }}
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: download  
+
+- name: Generating {{COMPONENT}} artifacts
+  ansible.builtin.shell: mvn clean package
+  args:
+    chdir: /home/{{APPUSER}}/{{COMPONENT}}/

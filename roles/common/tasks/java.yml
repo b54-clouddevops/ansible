@@ -18,18 +18,10 @@
   args:
     chdir: /home/{{APPUSER}}/{{COMPONENT}}/
 
-- name: Copying the systemd file
-  ansible.builtin.template:
-    src: systemd.service
-    dest: /etc/systemd/system/{{COMPONENT}}.service
-      
-
-- name: Restarting {{COMPONENT}} 
-  ansible.builtin.systemd:
-    name: "{{COMPONENT}}" 
-    state: restarted
-    enabled: true
-    daemon_reload: true
+- name: Configuring Service
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: config_svc 
 
 - name: Configuring Node Name Repo 
   ansible.builtin.shell: set-hostname {{COMPONENT}}-{{ENV}}

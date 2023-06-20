@@ -35,20 +35,6 @@
     - name: Reset {{COMPONENT}} Default root password
       ansible.builtin.shell:  echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p"{{DEFAULT_PASSWORD}}"
 
-
-    # - block:
-    #   - name: Restart Apache
-    #     service:
-    #       name: apache2
-    #       state: restarted
-    #   rescue:
-    #   - name: Log the error
-    #     debug:
-    #       var: ansible_failed_task
-# - name: Printing the password 
-#   ansible.builtin.debug: 
-#       msg: "Printing the pwd {{DEFAULT_PASSWORD}}"
-
 - name: Configuring Node Name Repo 
   ansible.builtin.shell: set-hostname {{COMPONENT}}-{{ENV}}
 

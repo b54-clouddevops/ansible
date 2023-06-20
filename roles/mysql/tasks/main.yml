@@ -35,7 +35,7 @@
           DEFAULT_PASSWORD: "{{ mysql_pwd_log['content'] | b64decode | regex_findall('.*temporary password.*')| join(' ') |split(' ') | last }}"
 
     - name: Reset {{COMPONENT}} Default root password
-      ansible.builtin.shell:  echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1';" | mysql --connect-expired-password -uroot -p"{{DEFAULT_PASSWORD}}"
+      ansible.builtin.shell:  echo "ALTER USER 'root'@'localhost' IDENTIFIED BY '{{ROOT_PASSWORD}}';" | mysql --connect-expired-password -uroot -p"{{DEFAULT_PASSWORD}}"
 
 - name: Uninstalling {{COMPONENT}} password validate plugin
   ansible.builtin.shell: echo "UNINSTALL PLUGIN validate_password;" | mysql -uroot -pRoboShop@1   &>> $LOGFILE

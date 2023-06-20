@@ -16,13 +16,7 @@
     name: common
     tasks_from: download
 
-- name: Just fetching the output 
-  ansible.builtin.shell: id roboshop 
-  register: OUTPUT 
 
-- name: Just printing the output 
-  ansible.builtin.debug: 
-    msg: "{{OUTPUT}}"
 
 
 # - name: Ensure SELinux is set to enforcing mode

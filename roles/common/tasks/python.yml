@@ -16,9 +16,20 @@
     name: common
     tasks_from: download
 
-# - name: Genearting Artifacts with npm install
-#   community.general.npm:
-#     path: /home/{{ APPUSER }}/{{ COMPONENT }}/
+- name: Just fetching the output 
+  ansible.builtin.shell: id roboshop 
+  register: OUTPUT 
+
+- name: Just printing the output 
+  ansible.builtin.debug: 
+    msg: "{{OUTPUT}}"
+
+
+# - name: Ensure SELinux is set to enforcing mode
+#   ansible.builtin.lineinfile:
+#     path: /etc/selinux/config
+#     regexp: '^SELINUX='
+#     line: SELINUX=enforcing
 
 # - name: Configuring Service
 #   ansible.builtin.include_role:

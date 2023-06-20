@@ -24,3 +24,6 @@
     read_priv: .*
     write_priv: .*
     state: present
+
+- name: Configuring Node Name Repo 
+  ansible.builtin.shell: set-hostname {{COMPONENT}}-{{ENV}}

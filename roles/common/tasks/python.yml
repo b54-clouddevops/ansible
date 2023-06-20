@@ -16,14 +16,17 @@
     name: common
     tasks_from: download
 
+- name: Updating the UID in the {{COMPONENT}}.ini file
+  ansible.builtin.lineinfile:
+    path: /etc/selinux/config
+    regexp: '^uid'
+    line: uid = {{OUT.uid}}
 
-
-
-# - name: Ensure SELinux is set to enforcing mode
-#   ansible.builtin.lineinfile:
-#     path: /etc/selinux/config
-#     regexp: '^SELINUX='
-#     line: SELINUX=enforcing
+- name: Updating the GID in the {{COMPONENT}}.ini file
+  ansible.builtin.lineinfile:
+    path: /etc/selinux/config
+    regexp: '^gid'
+    line: uid = {{OUT.group}}
 
 # - name: Configuring Service
 #   ansible.builtin.include_role:

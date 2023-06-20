@@ -38,15 +38,15 @@
 - name: Configuring Node Name Repo 
   ansible.builtin.shell: set-hostname {{COMPONENT}}-{{ENV}}
 
-- name: Download and extract Mongodb Schema
+- name: Download and extract {{COMPONENT}} Schema
   ansible.builtin.include_role:
     name: common
     tasks_from: download
 
-- name: Injecting the MongoDB Schema
-  community.mongodb.mongodb_shell:
-    file: "/tmp/{{COMPONENT}}-main/{{ item }}.js"
-    idempotent: yes 
-  loop: 
-    - catalogue 
-    - users
+- name: Injecting the {{COMPONENT}} Schema
+  community.mysql.mysql_db:
+    state: import
+    name: all
+    target: /tmp/{{ COMPONENT }}-main/{{ COMPONENT }}.sql
+    login_user: root
+    login_password: RoboShop@1

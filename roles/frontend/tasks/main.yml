@@ -18,15 +18,14 @@
     src: /tmp/{{COMPONENT}}-main/static/
     dest: /usr/share/nginx/html/
     remote_src: yes
-# If the source you're trying to copy is on the remote machine, ensure you give the remote_src as yes
 
+# If the source you're trying to copy is on the remote machine, ensure you give the remote_src as yes
 - name: Copying the proxy config
   ansible.builtin.template:
     src: roboshop.conf
     dest: /etc/nginx/default.d/roboshop.conf
   notify: Retarting Nginx
   
-
 - name: Starting nginx 
   ansible.builtin.systemd:
     name: nginx 

@@ -1,0 +1,3 @@
+- name: Task to demonstrate role dependency 
+  ansible.builtin.debug:
+      msg: I am a role called common, executed first as I was declared as a dependent role. 

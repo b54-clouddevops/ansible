@@ -31,6 +31,3 @@
     name: nginx 
     state: started
     enabled: true
-
-- name: Configuring Node Name Repo 
-  ansible.builtin.shell: set-hostname {{COMPONENT}}-{{ENV}}

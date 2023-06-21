@@ -37,6 +37,3 @@
   ansible.builtin.include_role:
     name: common
     tasks_from: config_svc    
-
-- name: Configuring Node Name Repo 
-  ansible.builtin.shell: set-hostname {{COMPONENT}}-{{ENV}}

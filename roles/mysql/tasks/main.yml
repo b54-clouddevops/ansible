@@ -54,6 +54,3 @@
     target: /tmp/{{ COMPONENT }}-main/shipping.sql
     login_user: root
     login_password: RoboShop@1 
-
-- name: Configuring Node Name Repo 
-  ansible.builtin.shell: set-hostname {{COMPONENT}}-{{ENV}}

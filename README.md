@@ -223,3 +223,24 @@ By default Ansible will look in each directory within a role for a main.yml file
 ```
 Ref :  https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_reuse_roles.html
 ```
+
+### Ansible-Pull ( Prefer using this when your infra is dynamic )
+
+```
+    $ ansible-pull -U https://github.com/b54-clouddevops/ansible.git roboshop-pull.yml -e COMPONENT=mongodb -e ENV=dev
+
+
+PS : Ensure the node has ansible installed.
+```
+
+
+### What is AWX ?
+
+```
+	AWX is a openSource tool more focused on the PUSH Mechanism of ansible. It's a centralized tool to run ansible and the paid version of that is Ansible Tower. 
+
+	Moreover they are not great tools for integration in cloud. AWX is more of a UI.
+    
+    Right now we are running playbook from Jenkins, similarly AWX can run the playbook. That's all.
+
+``` 

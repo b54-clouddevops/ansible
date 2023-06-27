@@ -1,7 +1,10 @@
 pipeline {
     agent any
-    environment {                         /le
+    environment {
         SSHCRED         = credentials('SSH_CRED') 
+    }
+    parameters {
+        string(name: 'COMPONENT', defaultValue: 'mongodb' , description: 'enter the name of the component')
     }
     stages {
         stage('') {

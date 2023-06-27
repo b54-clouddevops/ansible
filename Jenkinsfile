@@ -7,7 +7,7 @@ pipeline {
         string(name: 'COMPONENT', defaultValue: 'mongodb' , description: 'enter the name of the component')
     }
     stages {
-        stage('') {
+        stage('Ansible Dry Run') {
             steps {
                 sh ''' 
                     ansible-playbook robot-dryrun.yaml -e COMPONENT=${COMPONENT} -e ansible_user=centos -e ansible_password=${SSHCRED_PSW} -e ENV=dev

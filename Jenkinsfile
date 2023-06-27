@@ -17,11 +17,14 @@ pipeline {
         stage('Ansible Lint Checks') {
             when { branch pattern: "feature-.*", comparator: "REGEXP"}
             steps {
+                sh  "env"
+                sh  "echo Running aganst the feature branch whose name is ${GIT_BRANCH}"
                 sh  "echo Lint Checks Completed"
             }
         }
 
         stage('Ansible Dry Run') {
+            when { branch pattern: "PR-.*", comparator: "REGEXP"}
             steps {
                 sh ''' 
                     ansible-playbook robot-dryrun.yaml -e COMPONENT=${COMPONENT} -e ansible_user=centos -e ansible_password=${SSHCRED_PSW} -e ENV=dev

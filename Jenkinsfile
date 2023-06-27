@@ -27,6 +27,7 @@ pipeline {
             when { branch pattern: "PR-.*", comparator: "REGEXP"}
             steps {
                 sh ''' 
+                    echo runs only against a pR
                     ansible-playbook robot-dryrun.yaml -e COMPONENT=${COMPONENT} -e ansible_user=centos -e ansible_password=${SSHCRED_PSW} -e ENV=dev
                 ''' 
             }

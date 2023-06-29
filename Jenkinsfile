@@ -10,6 +10,7 @@ pipeline {
 
         stage('Ansible Code Scan') {
             steps {
+                sh  "env"
                 sh  "echo Code Scan Completed"
             }
         }
@@ -38,6 +39,7 @@ pipeline {
             }
             steps {
                 sh "echo Merging the feature branch to PROD Branch"
+
             }
         }
     }

@@ -44,11 +44,7 @@ pipeline {
         // }
 
         stage('Promoting Code to Prod Branch') {            
-            when { 
-                expression { 
-                    env.TAG_NAME == ".*"        // TAG_NAME Env variable will only be available if you run it agains the TAG
-                } 
-            }
+            when { expression { env.TAG_NAME == ".*" } }
             steps {
                 sh "echo Merging the feature branch to PROD Branch"
             }

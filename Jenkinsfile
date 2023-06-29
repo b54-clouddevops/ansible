@@ -33,14 +33,27 @@ pipeline {
             }
         }
 
+        // stage('Promoting Code to Prod Branch') {            
+        //     when {
+        //         branch 'main'
+        //     }
+        //     steps {
+        //         sh "echo Merging the feature branch to PROD Branch"
+
+        //     }
+        // }
+
         stage('Promoting Code to Prod Branch') {            
-            when {
-                branch 'main'
+            when { 
+                expression { 
+                    env.TAG_NAME == ".*"        // TAG_NAME Env variable will only be available if you run it agains the TAG
+                } 
             }
             steps {
                 sh "echo Merging the feature branch to PROD Branch"
 
             }
         }
+
     }
 }

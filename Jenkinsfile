@@ -51,7 +51,6 @@ pipeline {
             }
             steps {
                 sh "echo Merging the feature branch to PROD Branch"
-
             }
         }
 

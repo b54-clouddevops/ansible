@@ -10,6 +10,11 @@
   ansible.builtin.include_role:
     name: common
     tasks_from: create_user
+  
+- name: Downloading the .pem file needed for NodeJS Components
+  ansible.builtin.get_url:
+    url: https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem
+    dest: "/home/{{APPUSER}}"
 
 - name: Download and extracting {{ COMPONENT }}
   ansible.builtin.include_role:
@@ -19,6 +24,7 @@
 - name: Genearting Artifacts with npm install
   community.general.npm:
     path: /home/{{ APPUSER }}/{{ COMPONENT }}/
+  
 
 - name: Configuring Service
   ansible.builtin.include_role:

@@ -8,5 +8,11 @@
   ansible.builtin.debug: 
     msg: "{{OUT}}"
 
+- name: Install bottle into the specified (virtualenv), inheriting globally installed modules
+  ansible.builtin.pip:
+      name:
+        - boto3
+        - botocore
+      executable: pip3
 
 

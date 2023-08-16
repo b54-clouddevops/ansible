@@ -1,2 +1,3 @@
 COMPONENT: payment
 APPUSER: roboshop
+LOGLOCATION: /var/log/payment.log

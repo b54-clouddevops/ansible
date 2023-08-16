@@ -1,0 +1,3 @@
+COMPONENT: catalogue
+APPUSER: roboshop
+LOGLOCATION: /var/log/catalogue.log

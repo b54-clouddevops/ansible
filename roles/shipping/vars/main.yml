@@ -1,3 +1,4 @@
 COMPONENT: shipping
 APPUSER: roboshop
 LOGLOCATION: /var/log/shipping.log
+LOGTYPE: raw

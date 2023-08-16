@@ -4,6 +4,7 @@ filebeat.inputs:
   enabled: true
   paths:
     - "{{LOGLOCATION}}"
+  json.keys_under_root: true
 
 filebeat.config.modules:
   path: ${path.config}/modules.d/*.yml
@@ -25,3 +26,4 @@ processors:
   - add_kubernetes_metadata: ~
 
 
+#  json.keys_under_root: true  Only for cart, catalogue, user and for ther componets which is Payment, Frontend, Shipping ( false )

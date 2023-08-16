@@ -25,9 +25,15 @@
     src: roboshop.conf
     dest: /etc/nginx/default.d/roboshop.conf
   notify: Retarting Nginx
-  
+
+- name: Configuring Beats
+  ansible.builtin.include_role:
+    name: elk
+    tasks_from: filebeat
+
 - name: Starting nginx 
   ansible.builtin.systemd:
     name: nginx 
     state: started
     enabled: true
+

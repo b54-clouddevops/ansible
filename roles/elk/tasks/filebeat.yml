@@ -10,3 +10,11 @@
   ansible.builtin.package:
     name: filebeat 
     state: present 
+
+# filebeat config also has to be version controlled
+
+- name: Restart filebeat 
+  ansible.builtin.service:
+    name: filebeat 
+    state: restarted       
+    daemon_reload: yes

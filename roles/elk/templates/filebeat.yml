@@ -4,7 +4,9 @@ filebeat.inputs:
   enabled: true
   paths:
     - "{{LOGLOCATION}}"
+{% if LOGTYPE == "json" %}
   json.keys_under_root: true 
+{% endif %}
 
   fields:
    component: "{{COMPONENT}}"

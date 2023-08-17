@@ -26,6 +26,12 @@
     dest: /etc/nginx/default.d/roboshop.conf
   notify: Retarting Nginx
 
+- name: Copying the nginx config
+  ansible.builtin.template:
+    src: nginx.conf
+    dest: /etc/nginx/nginx.conf
+  notify: Retarting Nginx
+
 - name: Configuring Beats
   ansible.builtin.include_role:
     name: elk

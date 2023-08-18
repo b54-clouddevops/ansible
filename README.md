@@ -244,3 +244,14 @@ PS : Ensure the node has ansible installed.
     Right now we are running playbook from Jenkins, similarly AWX can run the playbook. That's all.
 
 ``` 
+
+
+
+# GROK DEBUGGER :
+
+Ref :https://grokdebugger.com/
+
+GROK Pattern For Frontend :
+```
+%{HTTPDATE:log_timestamp}%{SPACE}%{IP:source_ip}%{SPACE}%{WORD:http_method}%{SPACE}%{PATH:http_path}%{SPACE}%{WORD}/%{NUMBER}%{SPACE}%{NUMBER:http_status:int}%{SPACE}%{NUMBER:bytes_sent}%{SPACE}%{NUMBER:response_time:float}
+```

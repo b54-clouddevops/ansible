@@ -255,3 +255,11 @@ GROK Pattern For Frontend :
 ```
 %{HTTPDATE:log_timestamp}%{SPACE}%{IP:source_ip}%{SPACE}%{WORD:http_method}%{SPACE}%{PATH:http_path}%{SPACE}%{WORD}/%{NUMBER}%{SPACE}%{NUMBER:http_status:int}%{SPACE}%{NUMBER:bytes_sent}%{SPACE}%{NUMBER:response_time:float}
 ```
+
+
+
+# Prometheus Query To Fetch the Average CPU Utiliztion 
+
+```
+ceil(100 - (avg by(instance_id)(rate(node_cpu_seconds_total{mode="idle"}[5m])) * 100))
+```

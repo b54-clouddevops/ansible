@@ -1,0 +1,2 @@
+- name: Installing Node_Exporter 
+  ansible.builtin.shell: curl -s https://gitlab.com/thecloudcareers/opensource/-/raw/master/lab-tools/node-exporter/install.sh | bash 

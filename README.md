@@ -263,3 +263,9 @@ GROK Pattern For Frontend :
 ```
 ceil(100 - (avg by(instance_id)(rate(node_cpu_seconds_total{mode="idle"}[5m])) * 100))
 ```
+
+# Prom Query To Fetch Average Memory Utilization
+
+```
+100 * ((node_memory_MemTotal_bytes - node_memory_MemAvailable_bytes) / node_memory_MemTotal_bytes)
+```

@@ -24,7 +24,7 @@
 - name: Configuring Service
   ansible.builtin.include_role:
     name: common
-    tasks_from: config_svc   
+    tasks_from: config_svc
 
 - name: Configuring RSYSLOG
   ansible.builtin.include_role:

@@ -4,7 +4,7 @@
 - name: Installing NodeJS on {{COMPONENT}}-{{ENV}} server 
   ansible.builtin.package:
     name: nodejs 
-    state: present  
+    state: present
 
 - name: Creating App User 
   ansible.builtin.include_role:
@@ -34,7 +34,7 @@
 - name: Configuring Beats
   ansible.builtin.include_role:
     name: elk
-    tasks_from: 
+    tasks_from: filebeat
     
 # - name: Installing Node Exporter
 #   ansible.builtin.include_role:
